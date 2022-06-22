@@ -7,8 +7,8 @@ region = 'ap-northeast-2'
 # 월 ~ 일요일
 t = ["월", "화", "수", "목", "금", "토", "일"]
 # ec2-stop-start Access Key
-ACCESS_KEY = 'AKIAZKNCXBMWFD4IF7JG'
-SECRET_KEY = 'tt0lK/RpiBpnmZRMwaQDUoEegNhA+4rc7K8w3oEa'
+ACCESS_KEY = 'Enter Your Access Key'
+SECRET_KEY = 'Enter Your Secret Key'
 
 def lambda_handler(event, context):
     # 람다 호출된시점의 시간 계산
@@ -66,12 +66,12 @@ def lambda_handler(event, context):
 
             if is_day == True and is_end_time == True:
                 # 중지 인스턴스 호출
-                # ec2.stop_instances(InstanceIds=[instance])
-                print('인스턴스 이거 종료', [instance])
+                ec2.stop_instances(InstanceIds=[instance])
+                print('인스턴스 종료', [instance])
             elif is_day == True and is_start_time == True:
                 # 시작 인스턴스 호출
-                #ec2.start_instances(InstanceIds=[instance])
-                print('인스턴스 이거 시작', [instance])
+                ec2.start_instances(InstanceIds=[instance])
+                print('인스턴스 시작', [instance])
         except Exception as ex:
             print(ex)
 
