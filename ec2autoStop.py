@@ -12,7 +12,7 @@ SECRET_KEY = 'Enter Your Secret Key'
 
 def lambda_handler(event, context):
     # 람다 호출된시점의 시간 계산
-    print("ssts ec2 auto stop/start Lambda Start")
+    print("ec2 auto stop/start Lambda Start")
     now_date = t[datetime.today().weekday()]
     now_hour = int(datetime.now().strftime('%H')) + 9 # 로컬에서는 안맞을 수 있음
     print("now >> date: " + now_date + ", hour: " + str(now_hour))
@@ -74,9 +74,3 @@ def lambda_handler(event, context):
                 print('인스턴스 시작', [instance])
         except Exception as ex:
             print(ex)
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    lambda_handler()
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
